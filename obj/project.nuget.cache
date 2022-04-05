@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "NYFcbpmq9o4e3IgXPPFu0epNUKC9LEuDgOajC02o0St1v6GC/iY+g5hiR4uXriX2ZDVhQR1f4FlwTYyXxqgvkQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\iamAh\\Downloads\\Assessment\\Assessment.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\iamAh\\.nuget\\packages\\geeksdotnetassessment\\1.0.9\\geeksdotnetassessment.1.0.9.nupkg.sha512",
+    "C:\\Users\\iamAh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\iamAh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\iamAh\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

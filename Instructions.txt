@@ -1,0 +1,8 @@
+﻿This assessment consist of some methods that have to be implemented or refactored. The specification of each method has been provided in the documentation section of the method definition. 
+
+The assessment is evaluated based on :
+- Consistency in code and patterns	
+- Attention to details
+- Readability
+- Performance
+- The DRY principle
