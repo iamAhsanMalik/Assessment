@@ -9,8 +9,7 @@ public class Assessment : IAssessment
     /// </summary>
     public Score? WithMax(IEnumerable<Score> scores)
     {
-
-        throw new NotImplementedException();
+        return scores.Max();
     }
 
     /// <summary>
@@ -18,7 +17,14 @@ public class Assessment : IAssessment
     /// </summary>
     public double? GetAverageOrDefault(IEnumerable<int> items)
     {
-        throw new NotImplementedException();
+        if (items.Any())
+        {
+            return items.Average();
+        }
+        else
+        {
+            return null;
+        }
     }
 
 
@@ -78,7 +84,7 @@ public class Assessment : IAssessment
     /// </summary>
     public int? ClosestToAverageOrDefault(IEnumerable<int> numbers)
     {
-        return Convert.ToInt32(numbers.Select(x => x).Average());
+        return Convert.ToInt32(numbers.Average());
     }
 
     /// <summary>
