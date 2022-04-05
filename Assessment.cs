@@ -37,7 +37,7 @@ public class Assessment : IAssessment
         {
             if (!string.IsNullOrEmpty(text))
             {
-                return String.Join(suffixValue, text);
+                return String.Concat(text, suffixValue);
             }
             else
             {
@@ -46,9 +46,8 @@ public class Assessment : IAssessment
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message.ToString());
+            throw new Exception($"Sufix does not have any value {ex.Message}");
         }
-        //throw new NotImplementedException();
     }
 
     /// <summary>
