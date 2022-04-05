@@ -1,0 +1,10 @@
+C:\Users\iamAh\Downloads\Assessment\bin\Debug\netcoreapp3.1\Assessment.deps.json
+C:\Users\iamAh\Downloads\Assessment\bin\Debug\netcoreapp3.1\Assessment.dll
+C:\Users\iamAh\Downloads\Assessment\bin\Debug\netcoreapp3.1\Assessment.pdb
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.csproj.AssemblyReference.cache
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.AssemblyInfoInputs.cache
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.AssemblyInfo.cs
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.csproj.CoreCompileInputs.cache
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.dll
+C:\Users\iamAh\Downloads\Assessment\obj\Debug\netcoreapp3.1\Assessment.pdb

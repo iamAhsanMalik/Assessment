@@ -9,9 +9,12 @@ public class Assessment : IAssessment
     /// </summary>
     public Score? WithMax(IEnumerable<Score> scores)
     {
-        return scores.Max();
+        if (scores.Any())
+        {
+            return scores.Max();
+        }
+        return new Score();
     }
-
     /// <summary>
     /// Returns the average value of the collection. For an empty collection it returns null
     /// </summary>
@@ -53,7 +56,9 @@ public class Assessment : IAssessment
     /// <summary>
     /// It fetches all the data from the source.
     /// </summary>
-    /// <param name="source">The source data provider returns items by page. NextPageToken is the page token of the next page. If there are no more items to return, nextPageToken will be empty. Passing a null or empty string to the provider will return the first page of the data.
+    /// <param name="source">The source data provider returns items by page. NextPageToken is the page token of the next page.
+    /// If there are no more items to return, nextPageToken will be empty. Passing a null or empty 
+    /// string to the provider will return the first page of the data.
     /// If no value is specified for nextPageToken, the provider will return the first page.
     /// </param>
     /// <returns></returns>
@@ -132,4 +137,5 @@ public class Assessment : IAssessment
             throw new Exception($"Something Went Wrong {ex.Message}");
         }
     }
+
 }
