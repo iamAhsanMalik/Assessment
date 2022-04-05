@@ -119,7 +119,25 @@ public class Assessment : IAssessment
     /// </summary>
     public IEnumerable<BookingGrouping> Group(IEnumerable<Booking> dates)
     {
-        throw new NotImplementedException();
+        var result = dates.OrderByDescending(x => x.Allocation).GroupBy(x => x.Date).ToList();
+        var sjsls = result.Select(result => new BookingGrouping()
+        {
+            From = result.Select(x => x.Date).First(),
+            To = result.Select(x => x.Date).Last()
+        });
+        BookingGrouping bookingGrouping = new BookingGrouping();
+        for (int i = 0; i < result.Count; i++)
+        {
+            foreach (var item in result[i])
+            {
+                new BookingGrouping()
+                {
+                    From = item.Date,
+                    To = item.Date,
+                };
+            }
+        }
+        return null;
     }
 
     /// <summary>
