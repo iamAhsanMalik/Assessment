@@ -119,40 +119,31 @@ public class Assessment : IAssessment
     /// </summary>
     public IEnumerable<BookingGrouping> Group(IEnumerable<Booking> dates)
     {
-        IEnumerable<BookingGrouping> Bookingobj = new List<BookingGrouping>();
-        List<BookingGroupingItem> obj = new List<BookingGroupingItem>()
-;        var result = dates.OrderByDescending(x => x.Allocation).GroupBy(x => x.Date).ToList();
-        var sjsls = result.Select(result => new BookingGrouping()
-        {
-            From = result.Select(x => x.Date).First(),
-            To = result.Select(x => x.Date).Last()
-        });
-        BookingGrouping bookingGrouping = new BookingGrouping();
-        for (int i = 0; i < result.Count; i++)
-        {
-            string pFromdate = "";
-            string pTodate = "";
-            foreach (var item in result[i])
+       var booking = dates.Distinct().OrderByDescending(x => x.Allocation).GroupBy(x => x.Date).ToList();
+
+            var bookingGroupings = booking.Select(result => new BookingGrouping()
             {
-                pFromdate = "";
-                BookingGroupingItem pModel = new BookingGroupingItem();
-                pModel.Project = item.Project;
-                pModel.Allocation = item.Allocation;
-                obj.Add(pModel);
-            }
-
-            bookingGrouping.From = Convert.ToDateTime(pFromdate);
-                    bookingGrouping.To = Convert.ToDateTime(pTodate);
-                    bookingGrouping.Items = obj;
-               
-            //Bookingobj.Add(bookingGrouping);
-            Bookingobj = (new[] { bookingGrouping }).Concat(Bookingobj);
-
-
-        }
-
-        return Bookingobj;
+                From = GetFrom(result),
+                Items = GetItems(result),
+                To = GetFrom(result)
+            });
+            return bookingGroupings;
     }
+    #region Helper Methods for Group
+    public static List<BookingGroupingItem> GetItems(IGrouping<DateTime, Booking> data)
+    {
+        var result = new List<BookingGroupingItem>();
+        foreach (var item in data)
+        {
+            result.Add(new BookingGroupingItem() { Project = item.Project, Allocation = item.Allocation });
+        }
+        return result;
+    }
+    public static DateTime GetFrom(IGrouping<DateTime, Booking> data)
+    {
+        return data.First().Date;
+    }
+    #endregion
 
     /// <summary>
     /// Merges the specified collections so that the n-th element of the second list should appear after the n-th element of the first collection. 
