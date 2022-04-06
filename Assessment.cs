@@ -119,7 +119,9 @@ public class Assessment : IAssessment
     /// </summary>
     public IEnumerable<BookingGrouping> Group(IEnumerable<Booking> dates)
     {
-        var result = dates.OrderByDescending(x => x.Allocation).GroupBy(x => x.Date).ToList();
+        IEnumerable<BookingGrouping> Bookingobj = new List<BookingGrouping>();
+        List<BookingGroupingItem> obj = new List<BookingGroupingItem>()
+;        var result = dates.OrderByDescending(x => x.Allocation).GroupBy(x => x.Date).ToList();
         var sjsls = result.Select(result => new BookingGrouping()
         {
             From = result.Select(x => x.Date).First(),
@@ -128,16 +130,28 @@ public class Assessment : IAssessment
         BookingGrouping bookingGrouping = new BookingGrouping();
         for (int i = 0; i < result.Count; i++)
         {
+            string pFromdate = "";
+            string pTodate = "";
             foreach (var item in result[i])
             {
-                new BookingGrouping()
-                {
-                    From = item.Date,
-                    To = item.Date,
-                };
+                pFromdate = "";
+                BookingGroupingItem pModel = new BookingGroupingItem();
+                pModel.Project = item.Project;
+                pModel.Allocation = item.Allocation;
+                obj.Add(pModel);
             }
+
+            bookingGrouping.From = Convert.ToDateTime(pFromdate);
+                    bookingGrouping.To = Convert.ToDateTime(pTodate);
+                    bookingGrouping.Items = obj;
+               
+            //Bookingobj.Add(bookingGrouping);
+            Bookingobj = (new[] { bookingGrouping }).Concat(Bookingobj);
+
+
         }
-        return null;
+
+        return Bookingobj;
     }
 
     /// <summary>
